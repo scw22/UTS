@@ -12,8 +12,10 @@ import (
 func main() {
 	router := mux.NewRouter()
 
-	router.HandleFunc("/Rooms", controllers.GetAllRooms).Methods("GET")
-	router.HandleFunc("/users", controllers.InsertRoom).Methods("POST")
+	router.HandleFunc("/rooms", controllers.GetAllRooms).Methods("GET")
+	router.HandleFunc("/rooms", controllers.GetDetailRoom).Methods("GET")
+	router.HandleFunc("/rooms", controllers.InsertRoom).Methods("POST")
+	router.HandleFunc("/rooms", controllers.DeleteRooms).Methods("DELETE")
 
 	http.Handle("/", router)
 	fmt.Println("Connected to port 8080")
